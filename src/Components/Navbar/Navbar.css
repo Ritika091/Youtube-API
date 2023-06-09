@@ -1,0 +1,39 @@
+.Navbar{
+    display: flex;
+}
+.icon{
+    display: flex;
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+}
+.icon h2{
+    margin-top: 0rem;
+}
+.search{
+    margin-top: 1rem;
+    margin-left: 20rem;
+}
+.search input{
+    width: 32rem;
+    height: 2.5rem;
+    border-top-left-radius: 10rem;
+    border-bottom-left-radius: 10rem;
+}
+.search input::placeholder{
+    padding-left: 1rem;
+    font-size: 17px;
+}
+.search input[type="text" i]{
+    padding-left: 1rem;
+    font-size: 17px;  
+    padding-right: 1rem; 
+}
+.searchicon{
+    border-top-right-radius: 10rem;
+    border-bottom-right-radius: 10rem;
+    height: 2.8rem;
+    position: relative;
+    top: 5px;
+    left: -1px;
+    width: 4rem;
+}
