@@ -4,10 +4,32 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import { useEffect } from 'react';
 
 export default function ActionAreaCard() {
     const styles={textAlign:"start",fontWeight:"600",fontSize:"17px"};
     const s={textAlign:"start"}
+
+    useEffect(()=>{
+    // const showvideo=()=>{
+      const params={
+        part: 'contentDetails,snippet,statistics',
+    id: '7ghhRHRP6t4'
+      }
+      const queryString = new URLSearchParams(params).toString();
+      fetch(`https://youtube-v31.p.rapidapi.com/videos?${queryString}`,{
+        method:"get",
+        headers: {
+          'X-RapidAPI-Key': '894026b4c9msh3adf9faf2418584p15519cjsn0996d882981d',
+          'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
+        }
+
+      }).then(res=>res.json())
+      .then(data=>{
+        console.log(data)
+      }).catch(err=>console.log(err))
+    // }
+  })
   return (
     <Card sx={{ maxWidth: 345, marginTop:"2rem", marginLeft:"3rem", height:"20rem" }}
     >
