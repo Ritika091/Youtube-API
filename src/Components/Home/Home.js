@@ -11,7 +11,7 @@ export default function ActionAreaCard() {
     const s={textAlign:"start"}
 
     useEffect(()=>{
-    // const showvideo=()=>{
+    const showvideo=()=>{
       const params={
         part: 'contentDetails,snippet,statistics',
     id: '7ghhRHRP6t4'
@@ -28,7 +28,7 @@ export default function ActionAreaCard() {
       .then(data=>{
         console.log(data)
       }).catch(err=>console.log(err))
-    // }
+    }
   })
   return (
     <Card sx={{ maxWidth: 345, marginTop:"2rem", marginLeft:"3rem", height:"20rem" }}
