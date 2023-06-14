@@ -11,13 +11,15 @@ export default function ActionAreaCard() {
     const s={textAlign:"start"}
 
     useEffect(()=>{
-    const showvideo=()=>{
+    // const showvideo=()=>{
       const params={
-        part: 'contentDetails,snippet,statistics',
-    id: '7ghhRHRP6t4'
+        relatedToVideoId: '7ghhRHRP6t4',
+        part: 'id,snippet',
+        type: 'video',
+        maxResults: '50'
       }
       const queryString = new URLSearchParams(params).toString();
-      fetch(`https://youtube-v31.p.rapidapi.com/videos?${queryString}`,{
+      fetch(`https://youtube-v31.p.rapidapi.com/search?${queryString}`,{
         method:"get",
         headers: {
           'X-RapidAPI-Key': '894026b4c9msh3adf9faf2418584p15519cjsn0996d882981d',
@@ -28,7 +30,7 @@ export default function ActionAreaCard() {
       .then(data=>{
         console.log(data)
       }).catch(err=>console.log(err))
-    }
+    // }
   })
   return (
     <Card sx={{ maxWidth: 345, marginTop:"2rem", marginLeft:"3rem", height:"20rem" }}
