@@ -155,6 +155,19 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
+  const search=()=>{
+    fetch("https://youtube-v3-alternative.p.rapidapi.com/search",{
+      method:"get",
+      headers: {
+        'X-RapidAPI-Key': '894026b4c9msh3adf9faf2418584p15519cjsn0996d882981d',
+        'X-RapidAPI-Host': 'youtube-v3-alternative.p.rapidapi.com'
+      }
+    }).then(res=>res.json)
+    .then(data=>{
+      console.log(data);
+    }).catch(err=>console.log(err))
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{backgroundColor:"#1a1a1a"}}>

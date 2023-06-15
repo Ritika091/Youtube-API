@@ -7,6 +7,7 @@ import { CardActionArea } from '@mui/material';
 import { useEffect } from 'react';
 import { useState } from 'react'
 import './Home.css'
+import Navbar from '../Navbar/Navbar';
 
 
 export default function ActionAreaCard() {
@@ -33,6 +34,7 @@ useEffect(()=>{
 },[])
   return (
     <>
+    <Navbar/>
     <section className='Vid'>
      { 
      result.map(videos=>( 
