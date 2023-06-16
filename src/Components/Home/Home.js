@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { useState } from 'react'
 import './Home.css'
 import Navbar from '../Navbar/Navbar';
+import { Link } from 'react-router-dom';
 
 
 export default function ActionAreaCard() {
@@ -38,6 +39,7 @@ useEffect(()=>{
     <section className='Vid'>
      { 
      result.map(videos=>( 
+      <Link to={`/video/${videos.videoId}`} style={{textDecoration:"none"}}>
     <Card sx={{ maxWidth: 345, marginTop:"2rem", marginLeft:"3rem", height:"20rem" }}
     >
       <CardActionArea>
@@ -60,6 +62,7 @@ useEffect(()=>{
         </CardContent>
       </CardActionArea>
     </Card>
+    </Link>
       )) 
      } 
     </section>
