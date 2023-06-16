@@ -5,13 +5,13 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 export default function Video() {
-    // const [id]=useParams("dQw4w9WgXcQ");
+    // const [id]=useParams();
     // const videodetail=()=>{
         
     // }
     useEffect(()=>{
         // videodetail()
-        fetch(`https://youtube-v3-alternative.p.rapidapi.com/video?id=dQw4w9WgXcQ`,{
+        fetch(`https://youtube-v3-alternative.p.rapidapi.com/video?id=${id}`,{
             method:"get",
             qs: {id: 'dQw4w9WgXcQ'},
             headers: {
