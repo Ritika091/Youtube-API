@@ -16,6 +16,8 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -154,15 +156,16 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
-
+const[sear,setSear]=useState('');
+const navigate=useNavigate();
   const search=()=>{
-    fetch("https://youtube-v3-alternative.p.rapidapi.com/search",{
+    fetch(`https://youtube-v3-alternative.p.rapidapi.com/search?query=${sear}&geo=US&lang=en`,{
       method:"get",
       headers: {
         'X-RapidAPI-Key': '894026b4c9msh3adf9faf2418584p15519cjsn0996d882981d',
         'X-RapidAPI-Host': 'youtube-v3-alternative.p.rapidapi.com'
       }
-    }).then(res=>res.json)
+    }).then(res=>res.json())
     .then(data=>{
       console.log(data);
     }).catch(err=>console.log(err))
@@ -197,8 +200,16 @@ export default function PrimarySearchAppBar() {
             <StyledInputBase 
               placeholder="Search…" 
               inputProps={{ 'aria-label': 'search' }}
+              value={sear}
+              onChange={e=>{
+                setSear(e.target.value)
+                console.log(sear)
+              }}
             />
           </Search>
+          <button className='Searchbtn' onClick={()=>{search()
+          navigate("/search")}
+        } >Search</button>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {/* <IconButton size="large" aria-label="show 4 new mails" color="inherit">
