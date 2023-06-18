@@ -18,7 +18,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import './Navbar.css'
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -157,6 +157,7 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 const[sear,setSear]=useState('');
+const[vid,setVid]=useState([])
 const navigate=useNavigate();
   const search=()=>{
     fetch(`https://youtube-v3-alternative.p.rapidapi.com/search?query=${sear}&geo=US&lang=en`,{
@@ -167,7 +168,9 @@ const navigate=useNavigate();
       }
     }).then(res=>res.json())
     .then(data=>{
+      setVid(data)
       console.log(data);
+      // console.log(setVid)
     }).catch(err=>console.log(err))
   }
 
@@ -207,7 +210,7 @@ const navigate=useNavigate();
               }}
             />
           </Search>
-          <button className='Searchbtn' onClick={()=>{search()
+          <button className='Searchbtn' onClick={()=>{search(vid)
           navigate("/search")}
         } >Search</button>
           <Box sx={{ flexGrow: 1 }} />

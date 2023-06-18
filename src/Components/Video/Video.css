@@ -1,0 +1,23 @@
+.content{
+    margin-left: 6rem;
+    margin-top: 2rem;
+}
+.content p{
+    padding: 0 31rem;
+    margin-left: -31rem;
+    margin-top: 18px;
+}
+.content span{
+    margin-left: 2rem;
+}
+.content h3, .content h4{
+    margin-top: 18px;
+}
+.content h3{
+    display: flex;
+    margin-left: 1rem;
+}
+.sptitle{
+    margin-top: 8px;
+    margin-left: 1rem;
+}

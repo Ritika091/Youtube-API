@@ -1,4 +1,4 @@
-.Navbar{
+/* .Navbar{
     display: flex;
 }
 .icon{
@@ -36,4 +36,12 @@
     top: 5px;
     left: -1px;
     width: 4rem;
+} */
+.Searchbtn{
+    height: 2.36rem;
+    width: 4rem;
+    margin-left: -1rem;
+    background: rgb(133, 133, 133);
+    color: white;
+    cursor: pointer;
 }

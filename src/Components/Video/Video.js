@@ -3,6 +3,8 @@ import ReactPlayer from 'react-player'
 import Navbar from '../Navbar/Navbar'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import './Video.css'
+import Avatar from '@mui/material/Avatar';
 
 export default function Video() {
   const[vid,setVid]=useState([])
@@ -34,7 +36,17 @@ export default function Video() {
         height={"500px"}
         style={{marginLeft:"6rem", marginTop:"2rem"}}
         />
-        {vid.title}
+        <div className="content">
+          <h2>{vid.title}</h2>
+          <h3>
+          <Avatar  src={vid.thumbnail[0].url}/>
+            <span className='sptitle'>
+            {vid.channelTitle}
+              </span>
+           </h3>
+          <h4>{vid.viewCount} views <span>{vid.uploadDate}</span> </h4>
+          <p>{vid.description}</p>
+          </div> 
     </div>
   )
 }
