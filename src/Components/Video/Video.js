@@ -5,17 +5,13 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import './Video.css'
 import Avatar from '@mui/material/Avatar';
+import Comments from '../Comments/Comments'
 
 export default function Video() {
   const[vid,setVid]=useState([])
-    // const videodetail=()=>{
-        
-    // }
     const{vidid}=useParams()
     console.log(vidid)
     useEffect(()=>{
-        // videodetail()
-       
         fetch(`https://youtube-v3-alternative.p.rapidapi.com/video?id=${vidid}`,{
             method:"get",
             headers: {
@@ -29,17 +25,19 @@ export default function Video() {
         }).catch(err=>console.log(err))
     },[])
   return (
+    <>
     <div className='Video'>
         <Navbar/>
         <ReactPlayer url={`https://www.youtube-nocookie.com/embed/${vid.id}`} 
         width={"900px"}
         height={"500px"}
         style={{marginLeft:"6rem", marginTop:"2rem"}}
+        playing={true}
         />
         <div className="content">
           <h2>{vid.title}</h2>
           <h3>
-          <Avatar  src={vid.thumbnail[0].url}/>
+          {/* <Avatar  src={vid?.thumbnail[0]?.url}/> */}
             <span className='sptitle'>
             {vid.channelTitle}
               </span>
@@ -48,5 +46,7 @@ export default function Video() {
           <p>{vid.description}</p>
           </div> 
     </div>
+    <Comments/>
+    </>
   )
 }

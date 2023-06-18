@@ -1,11 +1,13 @@
 .content{
     margin-left: 6rem;
     margin-top: 2rem;
+    max-width: 900px;
 }
 .content p{
-    padding: 0 31rem;
-    margin-left: -31rem;
+    /* padding: 0 30rem;
+    margin-left: -30rem; */
     margin-top: 18px;
+    text-align: justify;
 }
 .content span{
     margin-left: 2rem;
