@@ -1,0 +1,8 @@
+.RelatedVideo{
+    display: flex;
+    margin-left: 1.6rem;
+    margin-top: 2rem;
+}
+.wholeCard{
+    display: flex;
+}

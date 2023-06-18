@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import './Video.css'
 import Avatar from '@mui/material/Avatar';
 import Comments from '../Comments/Comments'
+import RelatedVideo from '../RelatedVideo/RelatedVideo'
 
 export default function Video() {
   const[vid,setVid]=useState([])
@@ -28,8 +29,10 @@ export default function Video() {
     <>
     <div className='Video'>
         <Navbar/>
+        <div className="Mainpart">
+          <div className="LeftPart">
         <ReactPlayer url={`https://www.youtube-nocookie.com/embed/${vid.id}`} 
-        width={"900px"}
+        width={"880px"}
         height={"500px"}
         style={{marginLeft:"6rem", marginTop:"2rem"}}
         playing={true}
@@ -45,8 +48,15 @@ export default function Video() {
           <h4>{vid.viewCount} views <span>{vid.uploadDate}</span> </h4>
           <p>{vid.description}</p>
           </div> 
-    </div>
+  
     <Comments/>
+    </div>
+   
+    <div className="RightPart">
+      <RelatedVideo/>
+    </div>
+    </div>
+    </div>
     </>
   )
 }
