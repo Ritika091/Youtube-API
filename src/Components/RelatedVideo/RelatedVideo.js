@@ -20,7 +20,7 @@ export default function RelatedVideo() {
 	}
         }).then(res=>res.json())
         .then(data=>{
-            setVid(data)
+            setVid(data.data)
             console.log(data)
         }).catch(err=>console.log(err))
     }
@@ -39,20 +39,20 @@ export default function RelatedVideo() {
                   component="img"
                   height="120"
                   width="200"
-                  image={result.data.thumbnail[0].url}
+                  image={result.thumbnail[0].url}
                 />
                  </CardActionArea>
             </Card>
             </div>
             <div className="RelatedContent">
-            <Typography gutterBottom variant="h5" component="div">
-                    {result.data.title}
+            <Typography  variant="h5" component="div">
+                    {result.title}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {result.data.channelTitle}
+                    {result.channelTitle}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {result.data.viewCount} views . {result.data.publishedTimeText}
+                    {result.viewCount} views . {result.publishedTimeText}
                   </Typography>
             </div>
             </div>
