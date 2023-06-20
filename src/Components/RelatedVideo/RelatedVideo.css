@@ -2,8 +2,15 @@
     /* display: flex; */
     margin-left: 1.6rem;
     margin-top: 2rem;
-    max-width: 50px;
+    max-width: 500px;
 }
 .wholeCard{
     display: flex;
+    margin-bottom: 2rem;
+}
+.css-o69gx8-MuiCardMedia-root {
+    width: fit-content !important;
+}
+.RelatedContent{
+    margin-left: 1rem;
 }

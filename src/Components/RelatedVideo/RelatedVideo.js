@@ -26,7 +26,7 @@ export default function RelatedVideo() {
     }
     useEffect(()=>{
       related()
-    })
+    },[])
   return (
     <div className='RelatedVideo'>
         {
@@ -45,7 +45,7 @@ export default function RelatedVideo() {
             </Card>
             </div>
             <div className="RelatedContent">
-            <Typography  variant="h5" component="div">
+            <Typography  variant="subtitle" component="div">
                     {result.title}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
