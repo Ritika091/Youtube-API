@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea} from '@mui/material';
 import './RelatedVideo.css'
+import { Link } from 'react-router-dom';
 
 
 export default function RelatedVideo() {
@@ -31,6 +32,7 @@ export default function RelatedVideo() {
     <div className='RelatedVideo'>
         {
             vid.map(result=>(
+              <Link to={`/video/${result.id}`} style={{textDecoration:"none"}}>
                 <div className='wholeCard'>
                 <div className="RelatedCard">
                 <Card sx={{ maxWidth: 345 }}>
@@ -56,6 +58,7 @@ export default function RelatedVideo() {
                   </Typography>
             </div>
             </div>
+            </Link>
             ))
         }
        
