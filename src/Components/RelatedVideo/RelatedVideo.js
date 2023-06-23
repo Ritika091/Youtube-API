@@ -32,7 +32,7 @@ export default function RelatedVideo() {
     <div className='RelatedVideo'>
         {
             vid.map(result=>(
-              <Link to={`/video/${result.id}`} style={{textDecoration:"none"}}>
+              <Link to={`/video/${result.videoId}`} style={{textDecoration:"none"}}>
                 <div className='wholeCard'>
                 <div className="RelatedCard">
                 <Card sx={{ maxWidth: 345 }}>
