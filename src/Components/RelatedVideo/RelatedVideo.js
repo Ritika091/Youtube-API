@@ -5,10 +5,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea} from '@mui/material';
 import './RelatedVideo.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 export default function RelatedVideo() {
+  const navigate = useNavigate();
     const[vid,setVid]=useState([])
     const{vidid}=useParams()
     console.log(vidid)
@@ -27,13 +28,16 @@ export default function RelatedVideo() {
     }
     useEffect(()=>{
       related()
-    },[])
+    },[vidid])
+  
   return (
     <div className='RelatedVideo'>
         {
             vid.map(result=>(
-              <Link to={`/video/${result.videoId}`} style={{textDecoration:"none"}}>
-                <div className='wholeCard'>
+              // <Link to={`/video/${result.videoId}`}   style={{textDecoration:"none" , color:"black"}}>
+                <div className='wholeCard' onClick={() => navigate(`/video/${result.videoId}`)}
+          style={{ cursor: 'pointer' }}
+          key={result.videoId}>
                 <div className="RelatedCard">
                 <Card sx={{ maxWidth: 345 }}>
               <CardActionArea>
@@ -58,7 +62,7 @@ export default function RelatedVideo() {
                   </Typography>
             </div>
             </div>
-            </Link>
+            // </Link>
             ))
         }
        
