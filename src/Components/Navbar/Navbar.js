@@ -174,22 +174,13 @@ const navigate=useNavigate();
     .then(data=>{
       setVid(data)
       console.log(data);
-      navigate("/search");
+      navigate("/search", { state: { data } })
       // console.log(setVid)
     }).catch(err=>console.log(err))
   }
 
  
     
-    // const dataToSend = 'Hello, Next Page!';
-    // console.log(dataToSend)
-  
-    // const handleClick = () => {
-    //   navigate('/search', { state: { data: dataToSend } });
-    // };
-  
-  
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{backgroundColor:"#1a1a1a"}}>
@@ -226,16 +217,10 @@ const navigate=useNavigate();
               }}
             />
           </Search>
-          {/* <button className='Searchbtn' 
-          onClick={()=>{search(vid) 
-            navigate("/search")}}>Search  </button> */}
-
-<button
-      className='Searchbtn'
-      onClick={search}
-    >
-      <Link to="/search">Search</Link>
-    </button>
+          <button className='Searchbtn' 
+          onClick={()=>{search() 
+           
+            }}>Search  </button>
 
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
