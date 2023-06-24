@@ -19,6 +19,10 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Navbar.css'
+// import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -170,9 +174,21 @@ const navigate=useNavigate();
     .then(data=>{
       setVid(data)
       console.log(data);
+      navigate("/search");
       // console.log(setVid)
     }).catch(err=>console.log(err))
   }
+
+ 
+    
+    // const dataToSend = 'Hello, Next Page!';
+    // console.log(dataToSend)
+  
+    // const handleClick = () => {
+    //   navigate('/search', { state: { data: dataToSend } });
+    // };
+  
+  
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -180,7 +196,7 @@ const navigate=useNavigate();
         <Toolbar>
           <IconButton
             size="large"
-            edge="start"
+            edge="start" 
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
@@ -210,9 +226,17 @@ const navigate=useNavigate();
               }}
             />
           </Search>
-          <button className='Searchbtn' onClick={()=>{search(vid)
-          navigate("/search")}
-        } >Search</button>
+          {/* <button className='Searchbtn' 
+          onClick={()=>{search(vid) 
+            navigate("/search")}}>Search  </button> */}
+
+<button
+      className='Searchbtn'
+      onClick={search}
+    >
+      <Link to="/search">Search</Link>
+    </button>
+
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {/* <IconButton size="large" aria-label="show 4 new mails" color="inherit">
@@ -259,4 +283,5 @@ const navigate=useNavigate();
       {renderMenu}
     </Box>
   );
-}
+          }
+
