@@ -40,7 +40,7 @@ export default function Video() {
         <div className="content">
           <h2>{vid.title}</h2>
           <h3>
-          {/* <Avatar  src={vid?.thumbnail[0]?.url}/> */}
+          <Avatar  src={vid.thumbnail && vid.thumbnail[0] && vid.thumbnail[0].url}/>
             <span className='sptitle'>
             {vid.channelTitle}
               </span>
