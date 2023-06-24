@@ -36,6 +36,7 @@ export default function Video() {
         height={"500px"}
         style={{marginLeft:"6rem", marginTop:"2rem"}}
         playing={true}
+        controls
         />
         <div className="content">
           <h2>{vid.title}</h2>
