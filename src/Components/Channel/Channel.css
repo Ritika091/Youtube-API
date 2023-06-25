@@ -13,7 +13,12 @@
 }
 .bottomPart{
     margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 2rem;
 }
-.bottomPart .css-1wf8b0h-MuiTabs-flexContainer {
-    justify-content: space-evenly !important;
+.channelCard{
+    margin-right: 2rem;
+    margin-top: 2rem;
 }

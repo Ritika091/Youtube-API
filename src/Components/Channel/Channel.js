@@ -2,17 +2,18 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Navbar from '../Navbar/Navbar';
 import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
 import './Channel.css'
 import { useEffect,useState } from 'react';
-import { useParams } from 'react-router-dom';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-
+import { useParams,Link } from 'react-router-dom';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 
 export default function Channel() {
   const[id,setId]=useState([])
-  const [value, setValue] = useState(0);
+  // const [value, setValue] = useState(0);
   const {chid}=useParams()
   console.log(chid)
   const channel=()=>{
@@ -35,9 +36,9 @@ export default function Channel() {
     return null;
   }
   const bannerUrl = id.meta.image.banner[0].url;
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  // const handleChange = (event, newValue) => {
+  //   setValue(newValue);
+  // };
 
   return (
     <>
@@ -62,13 +63,36 @@ export default function Channel() {
       <Typography variant="subtitle2" component="subtitle2" sx={{display:"block",paddingRight:"18rem",textAlign:"justify"}}>{id.meta.description}</Typography>
       </div>
     </div>
-    <div className="bottomPart">
-    <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
-      <Tabs value={value} onChange={handleChange} centered>
-        <Tab label="VIDEOS" />
-        <Tab label="PLAYLIST" />
-      </Tabs>
-    </Box>
+  
+    <Typography variant="h5" component="h5" sx={{marginTop:"3rem", textAlign:"center"}}>Videos</Typography>
+    <div className="bottomPart">  
+    {
+      id.data.map(result=>(
+        <Link to={`/video/${result.videoId}`} style={{textDecoration:"none"}}>
+        <div className="channelCard">
+    <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image={result.thumbnail[0].url}
+        />
+        <CardContent>
+          <Typography variant="subtitle1" component="h6" sx={{fontWeight:"600"}}>
+            {result.title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {result.viewCount} views . {result.publishedText}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+    </div>
+    </Link>
+      ))
+    }
+    
+
     </div>
     </div>
     </>

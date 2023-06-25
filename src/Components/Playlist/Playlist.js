@@ -1,7 +1,14 @@
 import React from 'react'
+import Channel from '../Channel/Channel'
 
 export default function Playlist() {
   return (
-    <div>Playlist</div>
+    <>
+    <Channel/>
+    <div className='Playlist'>
+       
+        playlist
+    </div>
+    </>
   )
 }
