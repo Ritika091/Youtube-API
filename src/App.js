@@ -4,6 +4,8 @@ import {Routes, Route} from 'react-router-dom'
 import Video from './Components/Video/Video';
 import Search from './Components/Search/Search';
 import Channel from './Components/Channel/Channel';
+import ChannelVideo from './Components/ChannelVideo/ChannelVideo';
+import Playlist from './Components/Playlist/Playlist';
 
 function App() {
   return (
@@ -12,7 +14,9 @@ function App() {
         <Route path="/" element={<Home/>}></Route>
         <Route path='/video/:vidid' element={<Video/>}></Route>
         <Route path='/search' element={<Search/>}></Route>
-        <Route path='/channel' element={<Channel/>}></Route>
+        <Route path='/channel/:chid' element={<Channel/>}></Route>
+        <Route path='/channel/videos' element={<ChannelVideo/>}></Route>
+        <Route path='/channel/playlist' element={<Playlist/>}></Route>
       </Routes>
     </div>
   );

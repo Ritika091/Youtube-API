@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import ReactPlayer from 'react-player'
 import Navbar from '../Navbar/Navbar'
 import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import './Video.css'
 import Avatar from '@mui/material/Avatar';
 import Comments from '../Comments/Comments'
@@ -40,12 +40,14 @@ export default function Video() {
         />
         <div className="content">
           <h2>{vid.title}</h2>
+          <Link to={`/channel/${vid.channelId}`} style={{textDecoration:"none", color:"black"}}>
           <h3>
           <Avatar  src={vid.thumbnail && vid.thumbnail[0] && vid.thumbnail[0].url}/>
             <span className='sptitle'>
             {vid.channelTitle}
               </span>
            </h3>
+           </Link>
           <h4>{vid.viewCount} views <span>{vid.uploadDate}</span> </h4>
           <p>{vid.description}</p>
           </div> 

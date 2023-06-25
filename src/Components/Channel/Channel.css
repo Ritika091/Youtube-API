@@ -1,0 +1,19 @@
+.channelContent{
+    display: flex;
+    margin-top: 4rem;
+    margin-left: 13rem;
+}
+.channelimg{
+    width: 78px !important;
+    height: 95px !important;
+    margin-top: 1rem;
+}
+.contentChannel{
+    margin-left: 3rem;
+}
+.bottomPart{
+    margin-top: 2rem;
+}
+.bottomPart .css-1wf8b0h-MuiTabs-flexContainer {
+    justify-content: space-evenly !important;
+}
