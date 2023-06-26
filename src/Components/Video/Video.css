@@ -29,3 +29,13 @@
 .Mainpart{
     display: flex;
 }
+
+@media(max-width:991px){
+    .content {
+        margin-left: 6rem;
+        margin-right: -32rem;
+    }
+    .Mainpart{
+        display: block;
+    }
+}

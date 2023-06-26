@@ -4,7 +4,6 @@ import {Routes, Route} from 'react-router-dom'
 import Video from './Components/Video/Video';
 import Search from './Components/Search/Search';
 import Channel from './Components/Channel/Channel';
-import Playlist from './Components/Playlist/Playlist';
 
 function App() {
   return (

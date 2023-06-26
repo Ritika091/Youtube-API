@@ -37,6 +37,7 @@ export default function Video() {
         style={{marginLeft:"6rem", marginTop:"2rem"}}
         playing={true}
         controls
+        autoPlay={true}
         />
         <div className="content">
           <h2>{vid.title}</h2>

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Navbar from '../Navbar/Navbar';
-import Avatar from '@mui/material/Avatar';
 import './Channel.css'
 import { useEffect,useState } from 'react';
 import { useParams,Link } from 'react-router-dom';
@@ -13,7 +12,6 @@ import { CardActionArea } from '@mui/material';
 
 export default function Channel() {
   const[id,setId]=useState([])
-  // const [value, setValue] = useState(0);
   const {chid}=useParams()
   console.log(chid)
   const channel=()=>{
@@ -36,10 +34,7 @@ export default function Channel() {
     return null;
   }
   const bannerUrl = id.meta.image.banner[0].url;
-  // const handleChange = (event, newValue) => {
-  //   setValue(newValue);
-  // };
-
+ 
   return (
     <>
     <Navbar/>
@@ -91,8 +86,6 @@ export default function Channel() {
     </Link>
       ))
     }
-    
-
     </div>
     </div>
     </>
