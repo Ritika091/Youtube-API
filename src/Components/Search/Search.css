@@ -3,5 +3,5 @@
     display: flex;
 }
 .wholecard .css-o69gx8-MuiCardMedia-root {
-    object-fit: fill;
+    object-fit: fill !important;
 }
