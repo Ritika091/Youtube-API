@@ -24,6 +24,7 @@ export default function Video() {
           setVid(data)
             console.log(data)
         }).catch(err=>console.log(err))
+        window.scrollTo(0,0)   
     },[vidid])
   return (
     <>

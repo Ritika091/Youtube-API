@@ -194,8 +194,8 @@ const navigate=useNavigate();
           >
             {/* <MenuIcon /> */}
           </IconButton>
-          <YouTubeIcon color='error' fontSize="large"/>
-          <Typography
+          <YouTubeIcon color='error' fontSize="large" onClick={()=>navigate('/')}/>
+          <Typography onClick={()=>navigate('/')}
             variant="h6"
             noWrap
             component="div"
