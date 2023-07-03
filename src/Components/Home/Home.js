@@ -26,13 +26,29 @@ export default function ActionAreaCard() {
 
       }).then(res=>res.json())
       .then(data=>{
-        setResult(data.data)
+        const formattedData = data.data.map((video) => ({
+          ...video,
+          viewCount: formatYouTubeCount(video.viewCount),
+        }));
+        // setResult(data.data)
+        setResult(formattedData);
         console.log(data)
       }).catch(err=>console.log(err))
 }
 useEffect(()=>{
   showvideo()
 },[])
+function formatYouTubeCount(count) {
+  if (count < 1000) {
+    return count.toString();
+  } else if (count < 1000000) {
+    return (count / 1000).toFixed(1) + 'K';
+  } else if (count < 1000000000) {
+    return (count / 1000000).toFixed(1) + 'M';
+  } else {
+    return (count / 1000000000).toFixed(1) + 'B';
+  }
+}
   return (
     <>
     <Navbar/>

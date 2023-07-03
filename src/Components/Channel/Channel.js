@@ -23,13 +23,30 @@ export default function Channel() {
 	}
     }).then(res=>res.json())
     .then(data=>{
-      setId(data)
+      const formattedData = data.data.map((video) => ({
+        ...video,
+        viewCount: formatYouTubeCount(video.viewCount),
+      }));
+
+      setId({ ...data, data: formattedData });
+      // setId(data)
       console.log(data)
     }).catch(err=>console.log(err))
   }
   useEffect(()=>{
     channel()
   },[])
+  function formatYouTubeCount(count) {
+    if (count < 1000) {
+      return count.toString();
+    } else if (count < 1000000) {
+      return (count / 1000).toFixed(1) + 'K';
+    } else if (count < 1000000000) {
+      return (count / 1000000).toFixed(1) + 'M';
+    } else {
+      return (count / 1000000000).toFixed(1) + 'B';
+    }
+  }
   if (!id.meta || !id.meta.image || !id.meta.image.banner || !id.meta.image.banner[0]) {
     return null;
   }

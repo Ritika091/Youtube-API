@@ -21,11 +21,24 @@ export default function Video() {
               }
         }).then(res=>res.json())
         .then(data=>{
-          setVid(data)
+          const formattedViewCount = formatYouTubeCount(data.viewCount);
+          // setVid(data)
+          setVid({ ...data, viewCount: formattedViewCount });
             console.log(data)
         }).catch(err=>console.log(err))
         window.scrollTo(0,0)   
     },[vidid])
+    function formatYouTubeCount(count) {
+      if (count < 1000) {
+        return count.toString();
+      } else if (count < 1000000) {
+        return (count / 1000).toFixed(1) + 'K';
+      } else if (count < 1000000000) {
+        return (count / 1000000).toFixed(1) + 'M';
+      } else {
+        return (count / 1000000000).toFixed(1) + 'B';
+      }
+    }
   return (
     <>
     <div className='Video'>
